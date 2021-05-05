@@ -37,3 +37,18 @@ function showSlides() {
 
 showSlides();
 
+/* cards collage */
+let cardImgDisplay = document.querySelector(".cardImgDisplay");
+let cardImgLarge = document.querySelector(".cardImgLarge");
+let imgDescription = document.getElementById("imgDescription");
+
+document.querySelectorAll(".card").forEach(element => {
+    element.addEventListener("click", event => {
+        cardImgDisplay.style.display = "block";
+        cardImgLarge.src = event.target.src;
+        imgDescription.innerHTML = event.target.alt;
+    });
+});
+document.querySelector(".close").addEventListener("click", () => {
+    cardImgDisplay.style.display = "none";
+});
