@@ -31,20 +31,9 @@ function showSlides() {
         slideIndex = 1
     }
     slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 2000);
+    setTimeout(showSlides, 4000);
 
 }
 
 showSlides();
 
-const background = document.querySelector('.background');
-
-document.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-
-    if(scrollY !== 0) {
-        background.style.backgroundPosition = `calc(50% + ${scrollY}px) calc(50% + ${scrollY}px)`;
-    } else {
-        background.style.backgroundPosition = '';
-    }
-});
