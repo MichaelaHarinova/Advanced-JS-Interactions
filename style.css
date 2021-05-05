@@ -1,0 +1,138 @@
+body {
+    padding-bottom: 50px;
+}
+
+.picture {
+    padding: 10px;
+}
+
+.image {
+    height: 250px;
+    background: midnightblue;
+}
+
+.poke {
+    font-weight: bold;
+}
+
+.chaser {
+    width: 50px;
+    height: 50px;
+    background: red;
+    border-radius: 50%;
+}
+
+.runner {
+    width: 50px;
+    height: 50px;
+    background: green;
+    border-radius: 50%;
+}
+
+.box {
+    border: 1px solid grey;
+    height: 350px;
+}
+
+
+.title {
+    font-size: 1.5em;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+.lightMode {
+    background: rgb(245, 245, 245);
+    color: rgb(10, 10, 10);
+}
+
+.darkMode {
+    background: rgb(38, 37, 37);
+    color: rgb(201, 195, 195);
+}
+
+.bigTitle {
+    font-size: 2.5em;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.mode {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+    line-height: 47px;
+    height: 50px;
+    width: 50px;
+    border: 1px solid grey;
+    border-radius: 50%;
+}
+
+.mode:hover {
+    cursor: pointer;
+}
+
+/* carrousel */
+* {
+    box-sizing: border-box
+}
+
+.parallax {
+    /* Set a specific height */
+
+}
+
+.carouselContainer {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    margin: auto;
+    height: 400px;
+    min-height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.images {
+    display: none;
+}
+
+img {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 200px;
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+/* parallax */
