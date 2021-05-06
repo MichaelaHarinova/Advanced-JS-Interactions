@@ -251,11 +251,22 @@ a:hover.class4 {
     height: 50px;
     background: green;
     border-radius: 50%;
+    top:50%;
+    left:50%;
+    position: absolute;
+    z-index: 1000;
 }
 
-.box {
+.box1 {
     border: 1px solid grey;
     height: 350px;
     overflow:hidden;
-    width:100%;
+    max-width:100%;
+}
+
+.box2 {
+    border: 1px solid grey;
+    height: 350px;
+    overflow:hidden;
+    max-width:100%;
 }

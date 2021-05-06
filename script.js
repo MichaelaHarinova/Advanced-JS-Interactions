@@ -56,18 +56,73 @@ document.querySelector(".close").addEventListener("click", () => {
 
 /* games - chaser */
 let chaser = document.querySelector('.chaser');
-let body = document.querySelector(".box");
+let box1 = document.querySelector(".box1");
 let x = 0;
 let y = 0;
 
-body.addEventListener('mousemove', mouseMove, false);
+box1.addEventListener('mousemove', mouseMoveCh, true);
 
-function mouseMove(e) {
+function mouseMoveCh(e) {
 
     x = e.pageX;
     y = e.pageY;
-    //  body.animate({left: x, top: y}, 1);
-    chaser.style.left = x + 'px';
-    chaser.style.top = y + 'px';
-
+    if (x <= 1160 && y <= 2390) {
+        chaser.style.left = x + 'px';
+        chaser.style.top = y + 'px';
+    }
 }
+
+/* games -runner */
+let runner = document.querySelector('.runner');
+let box2 = document.querySelector(".box2");
+let xr = 0;
+let yr = 0;
+
+box2.addEventListener('mouseenter', mouseMoveRun, true);
+
+function mouseMoveRun(e) {
+
+    if (!runner.style.left) {
+        runner.style.left = 300 + 'px';
+    } else {
+        let positionLeft = parseInt(runner.style.left);
+        if (positionLeft >= 800) {
+            runner.style.left = '200';
+        } else if (positionLeft > 400) {
+            positionLeft += 150;
+            runner.style.left = (positionLeft + 150) + 'px';
+        }
+    }
+    xr = e.pageX;
+    yr = e.pageY;
+    if (xr <= 1160 && yr <= 2900) {
+        runner.style.left = xr  + 'px';
+        runner.style.top = yr  + 'px';
+    }
+}
+
+
+/* games - chaser/ another solution */
+// let chaser = document.querySelector('.chaser');
+// let body = document.querySelector(".box1");
+// let x = 0;
+// let y = 0;
+//
+// body.addEventListener('mouseover', mouseMove);
+// body.addEventListener('mouseleave', () => {
+//     insideBox = false;
+// })
+// let insideBox = false;
+//
+// function mouseMove(e) {
+//
+//     insideBox = true;
+//     console.log(insideBox);
+// }
+// document.onmousemove = trackMouse;
+// function trackMouse(e){
+//     if(insideBox){
+//         chaser.style.left = e.pageX - 25 + 'px';
+//         chaser.style.top = e.pageY - 25 + 'px';
+//     }
+// }
