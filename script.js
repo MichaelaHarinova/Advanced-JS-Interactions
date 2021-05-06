@@ -35,6 +35,7 @@ function showSlides() {
     setTimeout(showSlides, 2500);
 
 }
+
 showSlides();
 
 /* cards collage */
@@ -52,3 +53,21 @@ document.querySelectorAll(".card").forEach(element => {
 document.querySelector(".close").addEventListener("click", () => {
     cardImgDisplay.style.display = "none";
 });
+
+/* games - chaser */
+let chaser = document.querySelector('.chaser');
+let body = document.querySelector(".box");
+let x = 0;
+let y = 0;
+
+body.addEventListener('mousemove', mouseMove, false);
+
+function mouseMove(e) {
+
+    x = e.pageX;
+    y = e.pageY;
+    //  body.animate({left: x, top: y}, 1);
+    chaser.style.left = x + 'px';
+    chaser.style.top = y + 'px';
+
+}
