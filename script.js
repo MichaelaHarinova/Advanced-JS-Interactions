@@ -7,6 +7,7 @@ function randomLetter() {
     return alphabet[Math.floor(Math.random() * alphabet.length)]
 }
 
+
 /* dark mode switch */
 document.querySelector(".mode").addEventListener("click", switchToDark);
 
@@ -16,8 +17,8 @@ function switchToDark() {
 }
 
 /* automatic carousel */
-
 let slideIndex = 0;
+
 function showSlides() {
 
     let slides = document.querySelectorAll(".images");
@@ -31,10 +32,9 @@ function showSlides() {
         slideIndex = 1
     }
     slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 4000);
+    setTimeout(showSlides, 2500);
 
 }
-
 showSlides();
 
 /* cards collage */

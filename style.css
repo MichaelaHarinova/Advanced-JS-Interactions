@@ -3,14 +3,6 @@ body {
     font-weight: bold;
 }
 
-.picture {
-    padding: 10px;
-}
-
-.poke {
-    font-weight: bold;
-}
-
 .chaser {
     width: 50px;
     height: 50px;
@@ -30,10 +22,9 @@ body {
     height: 350px;
 }
 
-
 .title {
     font-size: 1.5em;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 
@@ -75,23 +66,11 @@ body {
     box-sizing: border-box
 }
 
-.parallax {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
 .carouselContainer {
     overflow: hidden;
     width: 100%;
-    position: relative;
-    margin: auto;
     height: 400px;
     min-height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     perspective: 8px;
     perspective-origin: 50%;
 }
@@ -104,25 +83,13 @@ body {
 img {
     max-width: 100%;
     min-width: 100%;
-    min-height: 200px;
 }
 
 
 /* Fading animation */
 .fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 4s;
     animation-name: fade;
     animation-duration: 4s;
-}
-
-@-webkit-keyframes fade {
-    from {
-        opacity: .4
-    }
-    to {
-        opacity: 1
-    }
 }
 
 @keyframes fade {
@@ -137,13 +104,11 @@ img {
 /* carousel animation */
 
 .element {
-    height: 100%;
-    width: 100%;
     transform: translateZ(0px);
-    animation: animateZ 4s infinite;
+    animation: carAnim 30s infinite;
 }
 
-@keyframes animateZ {
+@keyframes carAnim {
     from {
         transform: translateZ(2px);
     }
@@ -152,21 +117,29 @@ img {
     }
 }
 
+/* parallax */
+
+.parallax {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
 /* cards */
 .background {
-    background-color: rgba(103, 103, 103, 0.5);
+    background-color: rgba(28, 30, 31, 0.6);
     margin-top: 50px;
+    border-radius: 10px;
+}
+
+.picture {
+    padding: 10px;
 }
 
 .card {
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s;
-    height: 250px;
-    width: 250px;
-}
-
-.card:nth-of-type(1) {
     margin: auto;
 }
 
@@ -192,9 +165,14 @@ img {
     max-height: 100%;
 }
 
-.cardScale{
+.cardScale {
     min-height: 250px;
     object-fit: cover;
+    border-radius: 10px;
+}
+
+.imageBackground {
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 #imgDescription {
@@ -220,14 +198,55 @@ img {
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
-    transition: 0.3s;
 }
 
 .close:hover,
 .close:focus {
-    color: rgb(0, 55, 255);
+    color: #2ebbd5;
     cursor: pointer;
 }
 
+/* pokemon */
+.backgroundPoke {
+    background-color: rgba(28, 30, 31, 0.6);
+    border-radius: 10px;
+    margin-top: 50px;
+}
 
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #2ebbd5;
+}
 
+a:hover.class1 {
+    content: url('img/pidgeot.png');
+    display: inline-block;
+    width: 100px;
+}
+
+a:hover.class2 {
+    content: url('img/magikarp.png');
+    display: inline-block;
+    width: 100px;
+}
+
+a:hover.class3 {
+    content: url('img/slowpoke.png');
+    display: inline-block;
+    width: 100px;
+}
+
+a:hover.class4 {
+    content: url('img/farfetch.png');
+    display: inline-block;
+    width: 100px;
+}
+
+/* games */
+
+.backgroundPoke {
+    background-color: rgba(28, 30, 31, 0.6);
+    border-radius: 10px;
+    margin-top: 50px;
+}
