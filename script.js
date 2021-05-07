@@ -139,10 +139,11 @@ picDisplay.forEach((element, index) => {
     })
 
 });
-
-picDisplay.addEventListener('mouseleave', () => {
-    img.style.display = 'none';
-    span.style.display = 'block'
+picDisplay.forEach((element, index) => {
+    element.addEventListener('mouseleave', () => {
+        img[index].style.display = 'none';
+        span.style.display = 'inline-block'
+    })
 });
 
 

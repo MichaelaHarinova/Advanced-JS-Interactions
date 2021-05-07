@@ -198,13 +198,15 @@ span {
     cursor: pointer;
     text-decoration: none;
     color: #2ebbd5;
+
 }
 .hidden {
     display: none;
 }
+
 .picDisplay{
-    width:60px;
-    height: 60px;
+    width:7%;
+    height: 7%;;
     display: inline-block;
 }
 /* game - chaser */
