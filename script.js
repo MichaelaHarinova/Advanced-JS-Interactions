@@ -72,34 +72,78 @@ function mouseMoveCh(e) {
     }
 }
 
+
 /* games -runner */
 let runner = document.querySelector('.runner');
 let box2 = document.querySelector(".box2");
 let xr = 0;
 let yr = 0;
 
-box2.addEventListener('mouseenter', mouseMoveRun, true);
+box2.addEventListener('mousemove', mouseMoveRun, true);
 
 function mouseMoveRun(e) {
-
-    if (!runner.style.left) {
-        runner.style.left = 300 + 'px';
-    } else {
-        let positionLeft = parseInt(runner.style.left);
-        if (positionLeft >= 800) {
-            runner.style.left = '200';
-        } else if (positionLeft > 400) {
-            positionLeft += 150;
-            runner.style.left = (positionLeft + 150) + 'px';
-        }
-    }
     xr = e.pageX;
     yr = e.pageY;
-    if (xr <= 1160 && yr <= 2900) {
-        runner.style.left = xr  + 'px';
-        runner.style.top = yr  + 'px';
+
+    if (countDistance().x >= 25 && countDistance().x <= 50) {
+        runner.style.left = (parseInt(runner.style.left) + 10) + 'px';
     }
+    /*
+    else if (countDistance().y <= -50 && countDistance().y >= -25) {
+        runner.style.top = (parseInt(runner.style.top) - 10) + 'px';
+    } else if (countDistance().x >= 0 && countDistance().x <= 50) {
+        runner.style.left = (parseInt(runner.style.left) + 10) + 'px';
+    } else if (countDistance().x >= 25 && countDistance().x <= 50) {
+        runner.style.left = (parseInt(runner.style.left) + 10) + 'px';
+    } else if (countDistance().y >= 25 && countDistance().y <= 50) {
+        runner.style.top = (parseInt(runner.style.top) + 10) + 'px';
+    } else if (countDistance().y >= 0 && countDistance().y >= 50) {
+        runner.style.top = (parseInt(runner.style.top) + 10) + 'px';
+    } else if (countDistance().x >= -50 && countDistance().x >= -25) {
+        runner.style.left = (parseInt(runner.style.left) - 10) + 'px';
+    } else if (countDistance().y >= 25 && countDistance().y >= 50) {
+        runner.style.top = (parseInt(runner.style.top) + 10) + 'px';
+    } else if (countDistance().x >= -50 && countDistance().x >= 0) {
+        runner.style.left = (parseInt(runner.style.left) - 10) + 'px';
+    } else if (countDistance().x >= -50 && countDistance().x >= -20) {
+        runner.style.left = (parseInt(runner.style.left) - 10) + 'px';
+    } else if (countDistance().y >= -50 && countDistance().y >= -20) {
+        runner.style.top = (parseInt(runner.style.top) - 10) + 'px';
+    } else if (countDistance().y >= -50 && countDistance().y >= 0) {
+        runner.style.top = (parseInt(runner.style.top) - 10) + 'px';
+    } */
+    console.log(runner.style.left)
 }
+
+function countDistance() {
+    return {
+        x: parseInt(getComputedStyle(runner).left) - xr + 25,
+        y: parseInt(getComputedStyle(runner).top) - yr + 25
+    };
+}
+
+console.log(countDistance());
+
+
+/* poke */
+
+
+picDisplay = document.querySelectorAll('.picDisplay');
+img = document.querySelectorAll('.picDisplay img');
+span = document.querySelector('span');
+
+picDisplay.forEach((element, index) => {
+    element.addEventListener('mouseenter', () => {
+        img[index].style.display = 'inline-block';
+        span.style.display = 'none'
+    })
+
+});
+
+picDisplay.addEventListener('mouseleave', () => {
+    img.style.display = 'none';
+    span.style.display = 'block'
+});
 
 
 /* games - chaser/ another solution */
