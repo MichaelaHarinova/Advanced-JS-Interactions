@@ -188,8 +188,9 @@ img {
 }
 
 /* pokemon */
-.backgroundPoke {
-    background-color: rgba(28, 30, 31, 0.6);
+.backgroundDarker {
+    background-color: rgba(28, 30, 31, 0.9);
+    color: #cae3e8;
     border-radius: 10px;
     margin-top: 50px;
 }
@@ -211,7 +212,7 @@ span {
 }
 /* game - chaser */
 
-.backgroundPoke {
+.backgroundDarker {
     background-color: rgba(28, 30, 31, 0.6);
     border-radius: 10px;
     margin-top: 50px;
@@ -257,4 +258,21 @@ span {
     height: 350px;
     overflow: hidden;
     max-width: 100%;
+}
+
+/* letters */
+
+.letter{
+    color:  #2ebbd5;
+    float: left;
+    transition: 0.8s;
+}
+
+.box {
+    position: relative;
+    font-size: 30px;
+}
+
+.box:hover .letter {
+    transform: rotateY(360deg) rotateX(360deg);
 }

@@ -1,12 +1,3 @@
-Array.from(document.querySelectorAll(".letter")).forEach(el => {
-    el.innerText = randomLetter();
-});
-
-function randomLetter() {
-    const alphabet = "abcdefghijklmnopqrstuvwxyz"
-    return alphabet[Math.floor(Math.random() * alphabet.length)]
-}
-
 
 /* dark mode switch */
 document.querySelector(".mode").addEventListener("click", switchToDark);
@@ -23,7 +14,6 @@ function showSlides() {
 
     let slides = document.querySelectorAll(".images");
 
-
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
@@ -33,9 +23,7 @@ function showSlides() {
     }
     slides[slideIndex - 1].style.display = "block";
     setTimeout(showSlides, 2500);
-
 }
-
 showSlides();
 
 /* cards collage */
@@ -53,6 +41,27 @@ document.querySelectorAll(".card").forEach(element => {
 document.querySelector(".close").addEventListener("click", () => {
     cardImgDisplay.style.display = "none";
 });
+
+
+/* poke */
+picDisplay = document.querySelectorAll('.picDisplay');
+img = document.querySelectorAll('.picDisplay img');
+span = document.querySelector('span');
+
+picDisplay.forEach((element, index) => {
+    element.addEventListener('mouseenter', () => {
+        img[index].style.display = 'inline-block';
+        span.style.display = 'none'
+    })
+
+});
+picDisplay.forEach((element, index) => {
+    element.addEventListener('mouseleave', () => {
+        img[index].style.display = 'none';
+        span.style.display = 'inline-block'
+    })
+});
+
 
 /* games - chaser */
 let chaser = document.querySelector('.chaser');
@@ -125,34 +134,11 @@ function countDistance() {
 console.log(countDistance());
 
 
-/* poke */
-
-
-picDisplay = document.querySelectorAll('.picDisplay');
-img = document.querySelectorAll('.picDisplay img');
-span = document.querySelector('span');
-
-picDisplay.forEach((element, index) => {
-    element.addEventListener('mouseenter', () => {
-        img[index].style.display = 'inline-block';
-        span.style.display = 'none'
-    })
-
-});
-picDisplay.forEach((element, index) => {
-    element.addEventListener('mouseleave', () => {
-        img[index].style.display = 'none';
-        span.style.display = 'inline-block'
-    })
-});
-
-
 /* games - chaser/ another solution */
 // let chaser = document.querySelector('.chaser');
 // let body = document.querySelector(".box1");
 // let x = 0;
 // let y = 0;
-//
 // body.addEventListener('mouseover', mouseMove);
 // body.addEventListener('mouseleave', () => {
 //     insideBox = false;
@@ -160,7 +146,6 @@ picDisplay.forEach((element, index) => {
 // let insideBox = false;
 //
 // function mouseMove(e) {
-//
 //     insideBox = true;
 //     console.log(insideBox);
 // }
@@ -171,3 +156,31 @@ picDisplay.forEach((element, index) => {
 //         chaser.style.top = e.pageY - 25 + 'px';
 //     }
 // }
+
+/* letters */
+
+
+Array.from(document.querySelectorAll(".letter")).forEach(el => {
+    el.innerText = randomLetter();
+});
+
+function randomLetter() {
+    const alphabet = "abcdefghijklmnopqrstuvwxyz"
+    return alphabet[Math.floor(Math.random() * alphabet.length)]
+}
+
+
+let box = document.querySelector('.box');
+let letters = document.querySelectorAll('.letter');
+let newString = '';
+box.addEventListener('keydown', removeCharacter);
+
+    function removeCharacter() {
+        newString = box.replace('g', '');
+
+        document.querySelector('.letter').textContent
+            = newString;
+    }
+
+
+
