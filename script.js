@@ -94,44 +94,46 @@ function mouseMoveRun(e) {
     xr = e.pageX;
     yr = e.pageY;
 
-    if (countDistance().x >= 25 && countDistance().x <= 50) {
-        runner.style.left = (parseInt(runner.style.left) + 10) + 'px';
+    if (countDistance().x >= 25 && countDistance().x <= 50 && countDistance().y >= -50 && countDistance().y <= -25) {
+        console.log(runner.style.left);
+        runner.style.left = (parseInt(getComputedStyle(runner).left) - 10) + 'px';
+        runner.style.top = (parseInt(getComputedStyle(runner).top) + 10) + 'px';
     }
-    /*
-    else if (countDistance().y <= -50 && countDistance().y >= -25) {
+    else if (countDistance().x >= 0 && countDistance().x <= 50 && countDistance().y >= -25 && countDistance().y <= 25) {
+        runner.style.left = (parseInt(getComputedStyle(runner).left) - 10) + 'px';
+     //  runner.style.top = (parseInt(getComputedStyle(runner).top) + 10) + 'px';
+    }
+    else if (countDistance().x >= 25 && countDistance().x <= 50 && countDistance().y >= 25 && countDistance().y <= 50) {
+        runner.style.left = (parseInt(runner.style.left) - 10) + 'px';
         runner.style.top = (parseInt(runner.style.top) - 10) + 'px';
-    } else if (countDistance().x >= 0 && countDistance().x <= 50) {
+    }
+    else if (countDistance().x >= -25 && countDistance().x <= 25 && countDistance().y >= 0 && countDistance().y <= 50) {
+      // runner.style.left = (parseInt(runner.style.left) - 10) + 'px';
+        runner.style.top = (parseInt(runner.style.top) - 10) + 'px';
+    }
+    else if (countDistance().x >= -50 && countDistance().x <= -25 && countDistance().y >= 25 && countDistance().y <= 50) {
         runner.style.left = (parseInt(runner.style.left) + 10) + 'px';
-    } else if (countDistance().x >= 25 && countDistance().x <= 50) {
+        runner.style.top = (parseInt(runner.style.top) - 10) + 'px';
+    }
+    else if (countDistance().x >= -50 && countDistance().x <= 0 && countDistance().y >= -25 && countDistance().y <= 25) {
         runner.style.left = (parseInt(runner.style.left) + 10) + 'px';
-    } else if (countDistance().y >= 25 && countDistance().y <= 50) {
+     //   runner.style.top = (parseInt(runner.style.top) - 10) + 'px';
+    }
+      else if (countDistance().x >= -50 && countDistance().x <= -25 && countDistance().y >= -50 && countDistance().y <= -25) {
+        runner.style.left = (parseInt(runner.style.left) + 10) + 'px';
         runner.style.top = (parseInt(runner.style.top) + 10) + 'px';
-    } else if (countDistance().y >= 0 && countDistance().y >= 50) {
-        runner.style.top = (parseInt(runner.style.top) + 10) + 'px';
-    } else if (countDistance().x >= -50 && countDistance().x >= -25) {
-        runner.style.left = (parseInt(runner.style.left) - 10) + 'px';
-    } else if (countDistance().y >= 25 && countDistance().y >= 50) {
-        runner.style.top = (parseInt(runner.style.top) + 10) + 'px';
-    } else if (countDistance().x >= -50 && countDistance().x >= 0) {
-        runner.style.left = (parseInt(runner.style.left) - 10) + 'px';
-    } else if (countDistance().x >= -50 && countDistance().x >= -20) {
-        runner.style.left = (parseInt(runner.style.left) - 10) + 'px';
-    } else if (countDistance().y >= -50 && countDistance().y >= -20) {
-        runner.style.top = (parseInt(runner.style.top) - 10) + 'px';
-    } else if (countDistance().y >= -50 && countDistance().y >= 0) {
-        runner.style.top = (parseInt(runner.style.top) - 10) + 'px';
-    } */
-    console.log(runner.style.left)
+    }
+  //  console.log(runner.style.left)
 }
 
 function countDistance() {
     return {
-        x: parseInt(getComputedStyle(runner).left) - xr + 25,
-        y: parseInt(getComputedStyle(runner).top) - yr + 25
+        x: xr - parseInt(getComputedStyle(runner).left) - 25,
+        y: yr - parseInt(getComputedStyle(runner).top)  - 25
     };
 }
 
-console.log(countDistance());
+
 
 
 /* games - chaser/ another solution */
