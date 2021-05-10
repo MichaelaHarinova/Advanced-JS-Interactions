@@ -95,30 +95,102 @@ box2.addEventListener('mouseleave', () => {
 })
 
 function mouseMoveRun(e) {
-    insideBox = true;
+
     xr = e.pageX;
     yr = e.pageY;
 
-    if (xr <= 1160 && yr <= 2900) {
-        if (countDistance().x >= 25 && countDistance().x <= 50 && countDistance().y >= -50 && countDistance().y <= -25) {
+    let endW = 1160;
+    let startW = 50;
+    let startH = 2625;
+    let endH = 2950;
+
+    /* right top -> left bottom */
+    if (countDistance().x >= 25 && countDistance().x <= 50 && countDistance().y >= -50 && countDistance().y <= -25) {
+        if (parseInt(getComputedStyle(runner).left) - 10 <= startW + 25) {
+            runner.style.left = 75 + 'px';
+        } else {
             runner.style.left = (parseInt(getComputedStyle(runner).left) - 10) + 'px';
+        }
+        if (parseInt(getComputedStyle(runner).top) + 10 >= endH - 25) {
+            runner.style.top = 2925 + 'px';
+        } else {
             runner.style.top = (parseInt(getComputedStyle(runner).top) + 10) + 'px';
-        } else if (countDistance().x >= 0 && countDistance().x <= 50 && countDistance().y >= -25 && countDistance().y <= 25) {
+        }
+    }
+
+    /* right middle -> left middle */
+    else if (countDistance().x >= 0 && countDistance().x <= 50 && countDistance().y >= -25 && countDistance().y <= 25) {
+        if (parseInt(getComputedStyle(runner).left) - 10 <= startW + 25) {
+            runner.style.left = 75 + 'px';
+        } else {
             runner.style.left = (parseInt(getComputedStyle(runner).left) - 10) + 'px';
-        } else if (countDistance().x >= 25 && countDistance().x <= 50 && countDistance().y >= 25 && countDistance().y <= 50) {
+        }
+    }
+
+    /* right bottom -> left top */
+    else if (countDistance().x >= 25 && countDistance().x <= 50 && countDistance().y >= 25 && countDistance().y <= 50) {
+        if (parseInt(getComputedStyle(runner).left) - 10 <= startW + 25) {
+            runner.style.left = 75 + 'px';
+        } else {
             runner.style.left = (parseInt(getComputedStyle(runner).left) - 10) + 'px';
+        }
+        if (parseInt(getComputedStyle(runner).top) + 10 <= startH + 25) {
+            runner.style.top = 2650 + 'px';
+        } else {
             runner.style.top = (parseInt(getComputedStyle(runner).top) - 10) + 'px';
-        } else if (countDistance().x >= -25 && countDistance().x <= 25 && countDistance().y >= 0 && countDistance().y <= 50) {
+        }
+    }
+
+    /* middle bottom -> middle top */
+    else if (countDistance().x >= -25 && countDistance().x <= 25 && countDistance().y >= 0 && countDistance().y <= 50) {
+        if (parseInt(getComputedStyle(runner).top) + 10 <= startH + 25) {
+            runner.style.top = 2650 + 'px';
+        } else {
             runner.style.top = (parseInt(getComputedStyle(runner).top) - 10) + 'px';
-        } else if (countDistance().x >= -50 && countDistance().x <= -25 && countDistance().y >= 25 && countDistance().y <= 50) {
+        }
+    }
+
+    /* left bottom -> right top */
+    else if (countDistance().x >= -50 && countDistance().x <= -25 && countDistance().y >= 25 && countDistance().y <= 50) {
+        if (parseInt(getComputedStyle(runner).left) - 10 >= endW - 25) {
+            runner.style.left = 1135 + 'px';
+        } else {
             runner.style.left = (parseInt(getComputedStyle(runner).left) + 10) + 'px';
+        }
+        if (parseInt(getComputedStyle(runner).top) + 10 <= startH + 25) {
+            runner.style.top = 2650 + 'px';
+        } else {
             runner.style.top = (parseInt(getComputedStyle(runner).top) - 10) + 'px';
-        } else if (countDistance().x >= -50 && countDistance().x <= 0 && countDistance().y >= -25 && countDistance().y <= 25) {
+        }
+    }
+    /* middle left -> middle right */
+    else if (countDistance().x >= -50 && countDistance().x <= 0 && countDistance().y >= -25 && countDistance().y <= 25) {
+        if (parseInt(getComputedStyle(runner).left) - 10 >= endW - 25) {
+            runner.style.left = 1135 + 'px';
+        } else {
             runner.style.left = (parseInt(getComputedStyle(runner).left) + 10) + 'px';
-        } else if (countDistance().x >= -50 && countDistance().x <= -25 && countDistance().y >= -50 && countDistance().y <= -25) {
+        }
+    }
+
+    /* left top -> right bottom */
+    else if (countDistance().x >= -50 && countDistance().x <= -25 && countDistance().y >= -50 && countDistance().y <= -25) {
+        if (parseInt(getComputedStyle(runner).left) - 10 >= endW - 25) {
+            runner.style.left = 1135 + 'px';
+        } else {
             runner.style.left = (parseInt(getComputedStyle(runner).left) + 10) + 'px';
+        }
+        if (parseInt(getComputedStyle(runner).top) + 10 >= endH - 25) {
+            runner.style.top = 2925 + 'px';
+        } else {
             runner.style.top = (parseInt(getComputedStyle(runner).top) + 10) + 'px';
-        } else if (countDistance().x >= -25 && countDistance().x <= 25 && countDistance().y >= -50 && countDistance().y <= 0) {
+        }
+    }
+    
+    /* middle top -> middle bottom */
+    else if (countDistance().x >= -25 && countDistance().x <= 25 && countDistance().y >= -50 && countDistance().y <= 0) {
+        if (parseInt(getComputedStyle(runner).top) + 10 >= endH - 25) {
+            runner.style.top = 2925 + 'px';
+        } else {
             runner.style.top = (parseInt(getComputedStyle(runner).top) + 10) + 'px';
         }
     }
