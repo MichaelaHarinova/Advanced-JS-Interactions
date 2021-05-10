@@ -185,7 +185,7 @@ function mouseMoveRun(e) {
             runner.style.top = (parseInt(getComputedStyle(runner).top) + 10) + 'px';
         }
     }
-    
+
     /* middle top -> middle bottom */
     else if (countDistance().x >= -25 && countDistance().x <= 25 && countDistance().y >= -50 && countDistance().y <= 0) {
         if (parseInt(getComputedStyle(runner).top) + 10 >= endH - 25) {
@@ -232,6 +232,16 @@ function countDistance() {
 
 Array.from(document.querySelectorAll(".letter")).forEach(el => {
     el.innerText = randomLetter();
+    el.addEventListener('mouseenter', () => {
+        el.style.transition = '0';
+        el.style.transform = '';
+        setTimeout(() => {
+            el.style.transition = '1s';
+            el.style.transform = 'rotateY(360deg) rotateX(360deg)';
+            el.style.color = randomColor();
+            el.style.fontSize = randomSize();
+        }, 200);
+    })
 });
 
 function randomLetter() {
@@ -239,18 +249,25 @@ function randomLetter() {
     return alphabet[Math.floor(Math.random() * alphabet.length)]
 }
 
+function randomColor(){
+    let value_1 = (Math.floor(Math.random() * 256));
+    let value_2 = (Math.floor(Math.random() * 256));
+    let value_3 = (Math.floor(Math.random() * 256));
 
-let box = document.querySelector('.box');
-let letters = document.querySelectorAll('.letter');
-let newString = '';
-box.addEventListener('keydown', removeCharacter);
-
-function removeCharacter() {
-    newString = box.replace('g', '');
-
-    document.querySelector('.letter').textContent
-        = newString;
+    return 'rgb' + '(' + value_1 + " ," + value_2 + " ," + value_3 + ')';
 }
+
+function randomSize(){
+    let size = (Math.floor(Math.random() * 50));
+
+    return size + 'px';
+}
+
+
+
+
+
+
 
 
 

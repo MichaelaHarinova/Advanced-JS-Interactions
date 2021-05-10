@@ -265,14 +265,10 @@ span {
 .letter{
     color:  #2ebbd5;
     float: left;
-    transition: 0.8s;
 }
 
 .box {
     position: relative;
-    font-size: 30px;
-}
-
-.box:hover .letter {
-    transform: rotateY(360deg) rotateX(360deg);
+    font-size: 20px;
+    height: 300px;
 }
